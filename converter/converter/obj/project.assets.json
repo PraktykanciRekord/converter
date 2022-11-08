@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wedio\\source\\repos\\converter\\converter\\converter.csproj",
+      "projectUniqueName": "C:\\Users\\wedio\\Documents\\GitHub\\converter\\converter\\converter\\converter.csproj",
       "projectName": "converter",
-      "projectPath": "C:\\Users\\wedio\\source\\repos\\converter\\converter\\converter.csproj",
+      "projectPath": "C:\\Users\\wedio\\Documents\\GitHub\\converter\\converter\\converter\\converter.csproj",
       "packagesPath": "C:\\Users\\wedio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wedio\\source\\repos\\converter\\converter\\obj\\",
+      "outputPath": "C:\\Users\\wedio\\Documents\\GitHub\\converter\\converter\\converter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wedio\\AppData\\Roaming\\NuGet\\NuGet.Config",
