@@ -11,39 +11,16 @@ namespace converter
 
         private void main_window_Load(object sender, EventArgs e)
         {
-            string defaultUnitType = "weight";
             Main main = new Main();
-            main.SetValuesInListboxes(from_unit_listbox, to_unit_listbox, defaultUnitType);
+            main.SetValuesInListboxes(from_unit_listbox, to_unit_listbox, Main.selected_unit_types.weight.ToString());
         }
 
         private void calculate_button_Click(object sender, EventArgs e)
         {
-            bool success = true;
+            Main main = new Main();
 
-            string rawUserValue = user_input_textbox.Text;
-            double numericUserValue = 0;
-
-
-
-            if (rawUserValue == "")
-            {
-                success = false;
-                error_info_label.Text = "Enter value!";
-            }
-            else
-            {
-                try
-                {
-                    numericUserValue = double.Parse(rawUserValue);
-                }
-                catch (FormatException)
-                {
-                    success = false;
-                    error_info_label.Text = "Incorrect value!";
-                    user_input_textbox.Text = "";
-                }
-
-            }
+            Converter main_converter = new Converter();
+            result_textbox.Text = main_converter.ConvertUnit(main.FormatUserValue(user_input_textbox, error_info_label), from_unit_listbox, to_unit_listbox, unit_type_listbox).ToString();
         }
 
         private void unit_type_listbox_SelectedIndexChanged(object sender, EventArgs e)

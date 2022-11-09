@@ -45,7 +45,6 @@
             this.user_input_textbox.PlaceholderText = "Enter Value";
             this.user_input_textbox.Size = new System.Drawing.Size(100, 23);
             this.user_input_textbox.TabIndex = 0;
-            this.user_input_textbox.Text = "234";
             // 
             // calculate_button
             // 

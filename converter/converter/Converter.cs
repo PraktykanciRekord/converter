@@ -6,6 +6,8 @@ namespace converter
     {
         public string[] weight_units = { "t", "kg", "g", "mg" };
         public string[] distance_units = { "km", "m", "cm", "mm" };
+        public bool success { get; set; } = true;
+        public double val { get; set; }
         public enum selected_unit_types
         {
             weight,
@@ -29,8 +31,35 @@ namespace converter
             }
         }
 
+        public double FormatUserValue(TextBox user_input_textbox, Label error_info_label)
+        {
+            string rawUserValue = user_input_textbox.Text;
+
+            if (rawUserValue == "")
+            {
+                success = false;
+                error_info_label.Text = "Enter value!";
+            }
+            else
+            {
+                try
+                {
+                    val = double.Parse(rawUserValue);
+                }
+                catch (FormatException)
+                {
+                    success = false;
+                    error_info_label.Text = "Incorrect value!";
+                    user_input_textbox.Text = "";
+                }
+
+            }
+
+            return val;
+        }
+
     }
-    class Convert
+    class Converter
     {
         public double res { get; set; }
         public double val { get; set; }
@@ -42,84 +71,159 @@ namespace converter
             {
                 if (from_listbox.SelectedItem.ToString() == "t")
                 {
-                    if (to_listbox.SelectedItem.ToString() == "kg")
+                    if (to_listbox.SelectedItem.ToString() == "t")
                     {
-                        res = val * 1_000;
+                        res = val;
                     }
                     else if (to_listbox.SelectedItem.ToString() == "kg")
                     {
                         res = val * 1_000;
                     }
+                    else if (to_listbox.SelectedItem.ToString() == "g")
+                    {
+                        res = val * 1_000_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "mg")
+                    {
+                        res = val * 1_000_000_000;
+                    }
+                }
+                else if (from_listbox.SelectedItem.ToString() == "kg")
+                {
+                    if (to_listbox.SelectedItem.ToString() == "t")
+                    {
+                        res = val / 1_000;
+                    }
                     else if (to_listbox.SelectedItem.ToString() == "kg")
+                    {
+                        res = val;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "g")
                     {
                         res = val * 1_000;
                     }
+                    else if (to_listbox.SelectedItem.ToString() == "mg")
+                    {
+                        res = val * 1_000_000;
+                    }
+                }
+                else if (from_listbox.SelectedItem.ToString() == "g")
+                {
+                    if (to_listbox.SelectedItem.ToString() == "t")
+                    {
+                        res = val / 1_000_000;
+                    }
                     else if (to_listbox.SelectedItem.ToString() == "kg")
+                    {
+                        res = val / 1_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "g")
+                    {
+                        res = val;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "mg")
                     {
                         res = val * 1_000;
                     }
                 }
-                else if (from_listbox.SelectedItem.ToString() == "t")
+                else if (from_listbox.SelectedItem.ToString() == "mg")
                 {
-                    if (to_listbox.SelectedItem.ToString() == "kg")
+                    if (to_listbox.SelectedItem.ToString() == "t")
                     {
-                        res = val * 1_000;
+                        res = val / 1_000_000_000;
                     }
                     else if (to_listbox.SelectedItem.ToString() == "kg")
                     {
-                        res = val * 1_000;
+                        res = val / 1_000_000;
                     }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
+                    else if (to_listbox.SelectedItem.ToString() == "g")
                     {
-                        res = val * 1_000;
+                        res = val / 1_000;
                     }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
+                    else if (to_listbox.SelectedItem.ToString() == "mg")
                     {
-                        res = val * 1_000;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "t")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "t")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
+                        res = val;
                     }
                 }
             }
             else if (unit_type_listbox.SelectedItem.ToString() == Main.selected_unit_types.distance.ToString())
             {
-                //distance
+                if (from_listbox.SelectedItem.ToString() == "km")
+                {
+                    if (to_listbox.SelectedItem.ToString() == "km")
+                    {
+                        res = val;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "m")
+                    {
+                        res = val * 1_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "cm")
+                    {
+                        res = val * 100_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "mm")
+                    {
+                        res = val * 1_000_000;
+                    }
+                }
+                else if (from_listbox.SelectedItem.ToString() == "m")
+                {
+                    if (to_listbox.SelectedItem.ToString() == "km")
+                    {
+                        res = val / 1_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "m")
+                    {
+                        res = val;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "cm")
+                    {
+                        res = val * 100;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "mm")
+                    {
+                        res = val * 10_000;
+                    }
+                }
+                else if (from_listbox.SelectedItem.ToString() == "cm")
+                {
+                    if (to_listbox.SelectedItem.ToString() == "km")
+                    {
+                        res = val / 100_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "m")
+                    {
+                        res = val / 100;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "cm")
+                    {
+                        res = val;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "mm")
+                    {
+                        res = val * 10;
+                    }
+                }
+                else if (from_listbox.SelectedItem.ToString() == "mm")
+                {
+                    if (to_listbox.SelectedItem.ToString() == "km")
+                    {
+                        res = val / 1_000_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "m")
+                    {
+                        res = val / 1_000;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "cm")
+                    {
+                        res = val / 10;
+                    }
+                    else if (to_listbox.SelectedItem.ToString() == "mm")
+                    {
+                        res = val;
+                    }
+                }
             }
 
             return res;
