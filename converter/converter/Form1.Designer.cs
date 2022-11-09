@@ -31,7 +31,6 @@
             this.user_input_textbox = new System.Windows.Forms.TextBox();
             this.calculate_button = new System.Windows.Forms.Button();
             this.result_textbox = new System.Windows.Forms.TextBox();
-            this.copy_checkbox = new System.Windows.Forms.CheckBox();
             this.unit_type_listbox = new System.Windows.Forms.ListBox();
             this.from_unit_listbox = new System.Windows.Forms.ListBox();
             this.to_unit_listbox = new System.Windows.Forms.ListBox();
@@ -64,18 +63,6 @@
             this.result_textbox.ReadOnly = true;
             this.result_textbox.Size = new System.Drawing.Size(100, 23);
             this.result_textbox.TabIndex = 2;
-            // 
-            // copy_checkbox
-            // 
-            this.copy_checkbox.AutoSize = true;
-            this.copy_checkbox.Checked = true;
-            this.copy_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.copy_checkbox.Location = new System.Drawing.Point(299, 148);
-            this.copy_checkbox.Name = "copy_checkbox";
-            this.copy_checkbox.Size = new System.Drawing.Size(121, 19);
-            this.copy_checkbox.TabIndex = 3;
-            this.copy_checkbox.Text = "Copy to clipboard";
-            this.copy_checkbox.UseVisualStyleBackColor = true;
             // 
             // unit_type_listbox
             // 
@@ -125,7 +112,6 @@
             this.Controls.Add(this.to_unit_listbox);
             this.Controls.Add(this.from_unit_listbox);
             this.Controls.Add(this.unit_type_listbox);
-            this.Controls.Add(this.copy_checkbox);
             this.Controls.Add(this.result_textbox);
             this.Controls.Add(this.calculate_button);
             this.Controls.Add(this.user_input_textbox);
@@ -142,7 +128,6 @@
         private TextBox user_input_textbox;
         private Button calculate_button;
         private TextBox result_textbox;
-        private CheckBox copy_checkbox;
         private ListBox unit_type_listbox;
         private ListBox from_unit_listbox;
         private ListBox to_unit_listbox;
