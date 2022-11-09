@@ -24,7 +24,7 @@ namespace converter
             if (exceptionHandler.ExceptionHandle(exception_info_label, user_input_textbox, result_textbox))
             {
                 result_textbox.Text = converter.ConvertUnit(manager.FormatUserValue(user_input_textbox, exception_info_label), from_unit_listbox, to_unit_listbox, unit_type_listbox, result_textbox).ToString();
-                
+                manager.CopyResultToClipboard(result_textbox, exception_info_label);
             }
         }
         private void unit_type_listbox_SelectedIndexChanged(object sender, EventArgs e)
