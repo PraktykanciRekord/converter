@@ -3,10 +3,9 @@ namespace converter
     class Converter
     {
         public double res { get; set; }
-        public double val { get; set; }
-        public double ConvertUnit(double _val, ListBox from_listbox, ListBox to_listbox, ListBox unit_type_listbox)
+        public double ConvertUnit(double val, ListBox from_listbox, ListBox to_listbox, ListBox unit_type_listbox, TextBox result_textbox)
         {
-            if (unit_type_listbox.SelectedItem.ToString() == Main.selected_unit_types.weight.ToString())
+            if (unit_type_listbox.SelectedItem.ToString() == Manager.selected_unit_types.weight.ToString())
             {
                 if (from_listbox.SelectedItem.ToString() == "t")
                 {
@@ -85,7 +84,7 @@ namespace converter
                     }
                 }
             }
-            else if (unit_type_listbox.SelectedItem.ToString() == Main.selected_unit_types.distance.ToString())
+            else if (unit_type_listbox.SelectedItem.ToString() == Manager.selected_unit_types.distance.ToString())
             {
                 if (from_listbox.SelectedItem.ToString() == "km")
                 {
