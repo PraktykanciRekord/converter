@@ -1,0 +1,15 @@
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\bin\Release\net6.0-windows\converter.exe
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\bin\Release\net6.0-windows\converter.deps.json
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\bin\Release\net6.0-windows\converter.runtimeconfig.json
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\bin\Release\net6.0-windows\converter.dll
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.csproj.AssemblyReference.cache
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.main_window.resources
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.csproj.GenerateResource.cache
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.AssemblyInfoInputs.cache
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.AssemblyInfo.cs
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.csproj.CoreCompileInputs.cache
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.dll
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\refint\converter.dll
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\converter.genruntimeconfig.cache
+C:\Users\wedio\Documents\GitHub\converter\converter\converter\obj\Release\net6.0-windows\ref\converter.dll
