@@ -4,7 +4,6 @@ namespace converter
     {
         public string[] weight_units = { "t", "kg", "g", "mg" };
         public string[] distance_units = { "km", "m", "cm", "mm" };
-        public bool success { get; set; } = true;
         public enum selected_unit_types
         {
             weight,
