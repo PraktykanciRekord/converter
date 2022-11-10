@@ -31,23 +31,30 @@ namespace converter
                 to_listbox.SelectedItem = distance_units[1];
             }
         }
-        public double FormatUserValue(TextBox user_input_textbox, Label exception_info_label)
+        public double FormatUserValue(TextBox user_input_textbox)
         {
+            if (user_input_textbox.Text.Contains(','))
+            {
+                return double.Parse(user_input_textbox.Text.Replace(',', '.'));
+            }
             return double.Parse(user_input_textbox.Text);
         }
         public void CopyResultToClipboard(TextBox result_textbox, Label exception_info_label)
         {
             Clipboard.SetText(result_textbox.Text);
-            exception_info_label.Text = "Copied!";
+            WriteInLabel(exception_info_label, "Copied!", Color.Black);
         }
 
         public void Clear(TextBox user_input_textbox, TextBox result_textbox, Label exception_info_label)
         {
-            exception_info_label.Text = "Cleared!";
-
+            WriteInLabel(exception_info_label, "Cleared!", Color.Black);
             user_input_textbox.Text = "";
             result_textbox.Text = "";
         }
-
+        public void WriteInLabel(Label label, string text, Color color)
+        {
+            label.ForeColor = color;
+            label.Text = text;
+        }
     }
 }

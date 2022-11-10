@@ -49,7 +49,7 @@
             // 
             // calculate_button
             // 
-            this.calculate_button.Location = new System.Drawing.Point(109, 133);
+            this.calculate_button.Location = new System.Drawing.Point(104, 119);
             this.calculate_button.Name = "calculate_button";
             this.calculate_button.Size = new System.Drawing.Size(113, 42);
             this.calculate_button.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // result_textbox
             // 
-            this.result_textbox.Location = new System.Drawing.Point(93, 85);
+            this.result_textbox.Location = new System.Drawing.Point(93, 70);
             this.result_textbox.Name = "result_textbox";
             this.result_textbox.PlaceholderText = "Your Result";
             this.result_textbox.ReadOnly = true;
@@ -99,11 +99,13 @@
             // 
             // exception_info_label
             // 
-            this.exception_info_label.AutoSize = true;
-            this.exception_info_label.Location = new System.Drawing.Point(128, 7);
+            this.exception_info_label.BackColor = System.Drawing.Color.Transparent;
+            this.exception_info_label.ForeColor = System.Drawing.Color.Black;
+            this.exception_info_label.Location = new System.Drawing.Point(117, 9);
             this.exception_info_label.Name = "exception_info_label";
-            this.exception_info_label.Size = new System.Drawing.Size(0, 15);
+            this.exception_info_label.Size = new System.Drawing.Size(100, 15);
             this.exception_info_label.TabIndex = 7;
+            this.exception_info_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // clear_button
             // 
@@ -117,6 +119,7 @@
             // 
             // main_window
             // 
+            this.AcceptButton = this.calculate_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 184);
@@ -131,6 +134,7 @@
             this.MaximumSize = new System.Drawing.Size(346, 223);
             this.MinimumSize = new System.Drawing.Size(346, 223);
             this.Name = "main_window";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Converter";
             this.Load += new System.EventHandler(this.main_window_Load);
             this.ResumeLayout(false);

@@ -163,7 +163,6 @@ namespace converter
                     }
                 }
             }
-
             return res;
         }
     }
