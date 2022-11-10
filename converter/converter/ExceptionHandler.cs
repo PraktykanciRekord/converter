@@ -3,25 +3,36 @@ namespace converter
     class ExceptionHandler
     {
         public double value { get; set; }
-        Manager manager = new();
-
-        public bool ExceptionHandle(Label exception_info_label, TextBox user_input_textbox, TextBox result_textbox)
+        Label exception_info_label;
+        TextBox user_input_textbox;
+        TextBox result_textbox;
+        Manager manager;
+        public ExceptionHandler(Label exception_info_label, TextBox user_input_textbox, TextBox result_textbox, Manager manager)
         {
-            if (!NotANumberException(user_input_textbox, exception_info_label, result_textbox))
+            this.value = value;
+            this.exception_info_label = exception_info_label;
+            this.user_input_textbox = user_input_textbox;
+            this.result_textbox = result_textbox;
+            this.manager = manager;
+        }
+
+        public bool ExceptionHandle()
+        {
+            if (!NotANumberException())
             {
                 return false;
             }
-            if (!DotAndComaException(user_input_textbox, exception_info_label, result_textbox))
+            if (!DotAndComaException())
             {
                 return false;
             }
-            if (!TooManyComasException(user_input_textbox, exception_info_label, result_textbox))
+            if (!TooManyComasException())
             {
                 return false;
             }
             return true;
         }
-        public bool NotANumberException(TextBox user_input_textbox, Label exception_info_label, TextBox result_textbox)
+        public bool NotANumberException()
         {
             if (user_input_textbox.Text == "")
             {
@@ -45,7 +56,7 @@ namespace converter
             }
             return true;
         }
-        public bool DotAndComaException(TextBox user_input_textbox, Label exception_info_label, TextBox result_textbox)
+        public bool DotAndComaException()
         {
 
             if (user_input_textbox.Text.Contains('.') && user_input_textbox.Text.Contains(','))
@@ -57,7 +68,7 @@ namespace converter
             }
             return true;
         }
-        public bool TooManyComasException(TextBox user_input_textbox, Label exception_info_label, TextBox result_textbox)
+        public bool TooManyComasException()
         {
             int comaCounter = 0;
             foreach (char letter in user_input_textbox.Text)

@@ -2,165 +2,73 @@ namespace converter
 {
     class Converter
     {
-        public double res { get; set; }
-        public double ConvertUnit(double val, ListBox from_listbox, ListBox to_listbox, ListBox unit_type_listbox, TextBox result_textbox)
+        ListBox from_listbox;
+        ListBox to_listbox;
+        ListBox unit_type_listbox;
+        Manager manager;
+        public string[] weight_units;
+        public string[] distance_units;
+        public int[] weight_units_convert_ratio = {
+            1, 1_000, 1_000_000, 1_000_000_000, //t
+            1_000, 1, 1_000, 1_000_000,         //kg
+            1_000_000, 1_000, 1, 1_000_000,     //g
+            1_000_000_000, 1_000_000, 1_000, 1  //mg
+        };
+        public int[] distance_units_convert_ratio = {
+            1, 1_000, 100_000, 1_000_000,       //km
+            1_000, 1, 100, 10_000,              //m
+            100_000, 100, 1, 10,                //cm
+            1_000_000, 1_000, 10, 1             //mm
+        };
+        public char[] units_convert_sign = {
+        '*', '*', '*', '*',
+        '/', '*', '*', '*',
+        '/', '/', '*', '*',
+        '/', '/', '/', '*'
+        };
+        public Converter(ListBox from_listbox, ListBox to_listbox, ListBox unit_type_listbox, Manager manager)
         {
+            this.from_listbox = from_listbox;
+            this.to_listbox = to_listbox;
+            this.unit_type_listbox = unit_type_listbox;
+            this.manager = manager;
+            weight_units = manager.weight_units;
+            distance_units = manager.distance_units;
+        }
+        public double Convert(double val)
+        {
+            double res = 0;
+            string[] units = new string[0];
+            int counter = 0;
+            int[] units_convert_ratio = new int[0];
+            string unit_type__selected_item = unit_type_listbox.SelectedItem.ToString();
             if (unit_type_listbox.SelectedItem.ToString() == Manager.selected_unit_types.weight.ToString())
             {
-                if (from_listbox.SelectedItem.ToString() == "t")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "t")
-                    {
-                        res = val;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "g")
-                    {
-                        res = val * 1_000_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mg")
-                    {
-                        res = val * 1_000_000_000;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "kg")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "t")
-                    {
-                        res = val / 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "g")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mg")
-                    {
-                        res = val * 1_000_000;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "g")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "t")
-                    {
-                        res = val / 1_000_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val / 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "g")
-                    {
-                        res = val;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mg")
-                    {
-                        res = val * 1_000;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "mg")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "t")
-                    {
-                        res = val / 1_000_000_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "kg")
-                    {
-                        res = val / 1_000_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "g")
-                    {
-                        res = val / 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mg")
-                    {
-                        res = val;
-                    }
-                }
+                units = weight_units;
+                units_convert_ratio = weight_units_convert_ratio;
             }
             else if (unit_type_listbox.SelectedItem.ToString() == Manager.selected_unit_types.distance.ToString())
             {
-                if (from_listbox.SelectedItem.ToString() == "km")
+                units = distance_units;
+                units_convert_ratio = distance_units_convert_ratio;
+            }
+
+            foreach (string unit in units)
+            {
+                foreach (string secondary_unit in units)
                 {
-                    if (to_listbox.SelectedItem.ToString() == "km")
+                    if (unit == from_listbox.SelectedItem.ToString() && secondary_unit == to_listbox.SelectedItem.ToString())
                     {
-                        res = val;
+                        if (units_convert_sign[counter] == '*')
+                        {
+                            res = val * units_convert_ratio[counter];
+                        }
+                        else if (units_convert_sign[counter] == '/')
+                        {
+                            res = val / units_convert_ratio[counter];
+                        }
                     }
-                    else if (to_listbox.SelectedItem.ToString() == "m")
-                    {
-                        res = val * 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "cm")
-                    {
-                        res = val * 100_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mm")
-                    {
-                        res = val * 1_000_000;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "m")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "km")
-                    {
-                        res = val / 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "m")
-                    {
-                        res = val;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "cm")
-                    {
-                        res = val * 100;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mm")
-                    {
-                        res = val * 10_000;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "cm")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "km")
-                    {
-                        res = val / 100_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "m")
-                    {
-                        res = val / 100;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "cm")
-                    {
-                        res = val;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mm")
-                    {
-                        res = val * 10;
-                    }
-                }
-                else if (from_listbox.SelectedItem.ToString() == "mm")
-                {
-                    if (to_listbox.SelectedItem.ToString() == "km")
-                    {
-                        res = val / 1_000_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "m")
-                    {
-                        res = val / 1_000;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "cm")
-                    {
-                        res = val / 10;
-                    }
-                    else if (to_listbox.SelectedItem.ToString() == "mm")
-                    {
-                        res = val;
-                    }
+                    counter++;
                 }
             }
             return res;
