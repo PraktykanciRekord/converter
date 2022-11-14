@@ -24,7 +24,7 @@ namespace converter
             weight,
             distance
         }
-        public void SetValuesInListboxes()
+        public string SetValuesInListboxes()
         {
             from_unit_listbox.Items.Clear();
             to_unit_listbox.Items.Clear();
@@ -36,6 +36,7 @@ namespace converter
 
                 from_unit_listbox.SelectedItem = weight_units[1];
                 to_unit_listbox.SelectedItem = weight_units[1];
+                return "values have been set to weight units";
             }
             else if (unit_type_listbox.SelectedItem.ToString() == selected_unit_types.distance.ToString())
             {
@@ -44,7 +45,9 @@ namespace converter
 
                 from_unit_listbox.SelectedItem = distance_units[1];
                 to_unit_listbox.SelectedItem = distance_units[1];
+                return "values have been set to distance units";
             }
+            return "an error occured";
         }
         public double FormatUserValue()
         {

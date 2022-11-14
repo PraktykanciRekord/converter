@@ -153,6 +153,8 @@
             this.Controls.Add(this.result_textbox);
             this.Controls.Add(this.calculate_button);
             this.Controls.Add(this.user_input_textbox);
+            this.MaximumSize = new System.Drawing.Size(335, 200);
+            this.MinimumSize = new System.Drawing.Size(335, 200);
             this.Name = "main_window";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Converter";

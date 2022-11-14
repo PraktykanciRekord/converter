@@ -30,6 +30,10 @@ namespace converter
             {
                 return false;
             }
+            if (!TooManyComasException())
+            {
+                return false;
+            }
             return true;
         }
         public bool NotANumberException()

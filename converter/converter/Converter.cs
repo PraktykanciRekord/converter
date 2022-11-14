@@ -41,7 +41,6 @@ namespace converter
             string[] units = new string[0];
             int counter = 0;
             int[] units_convert_ratio = new int[0];
-            string unit_type__selected_item = unit_type_listbox.SelectedItem.ToString();
             if (unit_type_listbox.SelectedItem.ToString() == Manager.selected_unit_types.weight.ToString())
             {
                 units = weight_units;
