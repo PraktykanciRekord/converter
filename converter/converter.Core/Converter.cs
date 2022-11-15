@@ -1,13 +1,13 @@
-namespace converter
+﻿using converter;
+namespace converter.Core
 {
-    class Converter
+    public class Converter
     {
-        ListBox from_listbox;
-        ListBox to_listbox;
-        ListBox unit_type_listbox;
-        Manager manager;
-        public string[] weight_units;
-        public string[] distance_units;
+        object from_unit_listbox_selecteditem;
+        object to_unit_listbox_selecteditem;
+        object unit_type_listbox_selecteditem;
+        public string[] weight_units = { "t", "kg", "g", "mg" };
+        public string[] distance_units = { "km", "m", "cm", "mm" };
         public int[] weight_units_convert_ratio = {
             1, 1_000, 1_000_000, 1_000_000_000, //t
             1_000, 1, 1_000, 1_000_000,         //kg
@@ -26,14 +26,16 @@ namespace converter
         '/', '/', '*', '*',
         '/', '/', '/', '*'
         };
-        public Converter(ListBox from_listbox, ListBox to_listbox, ListBox unit_type_listbox, Manager manager)
+        public enum selected_unit_types
         {
-            this.from_listbox = from_listbox;
-            this.to_listbox = to_listbox;
-            this.unit_type_listbox = unit_type_listbox;
-            this.manager = manager;
-            weight_units = manager.weight_units;
-            distance_units = manager.distance_units;
+            weight,
+            distance
+        }
+        public Converter(object from_unit_listbox_selecteditem, object to_unit_listbox_selecteditem, object unit_type_listbox_selecteditem)
+        {
+            this.from_unit_listbox_selecteditem = from_unit_listbox_selecteditem;
+            this.to_unit_listbox_selecteditem = to_unit_listbox_selecteditem;
+            this.unit_type_listbox_selecteditem = unit_type_listbox_selecteditem;
         }
         public double Convert(double val)
         {
@@ -41,12 +43,12 @@ namespace converter
             string[] units = new string[0];
             int counter = 0;
             int[] units_convert_ratio = new int[0];
-            if (unit_type_listbox.SelectedItem.ToString() == Manager.selected_unit_types.weight.ToString())
+            if (unit_type_listbox_selecteditem.ToString() == selected_unit_types.weight.ToString())
             {
                 units = weight_units;
                 units_convert_ratio = weight_units_convert_ratio;
             }
-            else if (unit_type_listbox.SelectedItem.ToString() == Manager.selected_unit_types.distance.ToString())
+            else if (unit_type_listbox_selecteditem.ToString() == selected_unit_types.distance.ToString())
             {
                 units = distance_units;
                 units_convert_ratio = distance_units_convert_ratio;
@@ -56,7 +58,7 @@ namespace converter
             {
                 foreach (string secondary_unit in units)
                 {
-                    if (unit == from_listbox.SelectedItem.ToString() && secondary_unit == to_listbox.SelectedItem.ToString())
+                    if (unit == from_unit_listbox_selecteditem.ToString() && secondary_unit == to_unit_listbox_selecteditem.ToString())
                     {
                         if (units_convert_sign[counter] == '*')
                         {

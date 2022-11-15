@@ -1384,6 +1384,16 @@
         "build": {
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "converter.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/converter.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/converter.Core.dll": {}
+        }
       }
     }
   },
@@ -4801,10 +4811,16 @@
         "xunit.runner.visualstudio.2.4.5.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "converter.Core/1.0.0": {
+      "type": "project",
+      "path": "../converter.Core/converter.Core.csproj",
+      "msbuildProject": "../converter.Core/converter.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "converter.Core >= 1.0.0",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
     ]
@@ -4835,7 +4851,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\wedio\\Documents\\GitHub\\converter\\converter\\converter.Core\\converter.Core.csproj": {
+              "projectPath": "C:\\Users\\wedio\\Documents\\GitHub\\converter\\converter\\converter.Core\\converter.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

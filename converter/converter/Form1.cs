@@ -1,3 +1,4 @@
+using converter.Core;
 namespace converter
 {
     public partial class main_window : Form
@@ -20,7 +21,7 @@ namespace converter
         {
             Manager manager = new Manager(user_input_textbox, result_textbox, to_unit_listbox, from_unit_listbox, exception_info_label, unit_type_listbox);
             ExceptionHandler exceptionHandler = new ExceptionHandler(exception_info_label, user_input_textbox, result_textbox, manager);
-            Converter converter = new Converter(from_unit_listbox, to_unit_listbox, unit_type_listbox, manager);
+            Converter converter = new Converter(from_unit_listbox, to_unit_listbox, unit_type_listbox);
             if (exceptionHandler.ExceptionHandle())
             {
                 result_textbox.Text = converter.Convert(manager.FormatUserValue()).ToString();

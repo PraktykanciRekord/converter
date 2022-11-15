@@ -1,0 +1,5 @@
+C:\Users\wedio\Documents\GitHub\converter\converter\converter.Core\obj\Release\net6.0\converter.Core.csproj.AssemblyReference.cache
+C:\Users\wedio\Documents\GitHub\converter\converter\converter.Core\obj\Release\net6.0\converter.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wedio\Documents\GitHub\converter\converter\converter.Core\obj\Release\net6.0\converter.Core.AssemblyInfoInputs.cache
+C:\Users\wedio\Documents\GitHub\converter\converter\converter.Core\obj\Release\net6.0\converter.Core.AssemblyInfo.cs
+C:\Users\wedio\Documents\GitHub\converter\converter\converter.Core\obj\Release\net6.0\converter.Core.csproj.CoreCompileInputs.cache
