@@ -3,15 +3,12 @@ namespace converter.Core
 {
     public class Converter
     {
-        object from_unit_listbox_selecteditem;
-        object to_unit_listbox_selecteditem;
-        object unit_type_listbox_selecteditem;
         public string[] weight_units = { "t", "kg", "g", "mg" };
         public string[] distance_units = { "km", "m", "cm", "mm" };
         public int[] weight_units_convert_ratio = {
             1, 1_000, 1_000_000, 1_000_000_000, //t
             1_000, 1, 1_000, 1_000_000,         //kg
-            1_000_000, 1_000, 1, 1_000_000,     //g
+            1_000_000, 1_000, 1, 1_000,     //g
             1_000_000_000, 1_000_000, 1_000, 1  //mg
         };
         public int[] distance_units_convert_ratio = {
@@ -31,24 +28,18 @@ namespace converter.Core
             weight,
             distance
         }
-        public Converter(object from_unit_listbox_selecteditem, object to_unit_listbox_selecteditem, object unit_type_listbox_selecteditem)
+        public double Convert(string? from_unit, string? to_unit, string? unit_type, double val)
         {
-            this.from_unit_listbox_selecteditem = from_unit_listbox_selecteditem;
-            this.to_unit_listbox_selecteditem = to_unit_listbox_selecteditem;
-            this.unit_type_listbox_selecteditem = unit_type_listbox_selecteditem;
-        }
-        public double Convert(double val)
-        {
-            double res = 0;
+            double res = -1;
             string[] units = new string[0];
             int counter = 0;
             int[] units_convert_ratio = new int[0];
-            if (unit_type_listbox_selecteditem.ToString() == selected_unit_types.weight.ToString())
+            if (unit_type == selected_unit_types.weight.ToString())
             {
                 units = weight_units;
                 units_convert_ratio = weight_units_convert_ratio;
             }
-            else if (unit_type_listbox_selecteditem.ToString() == selected_unit_types.distance.ToString())
+            else if (unit_type == selected_unit_types.distance.ToString())
             {
                 units = distance_units;
                 units_convert_ratio = distance_units_convert_ratio;
@@ -58,7 +49,7 @@ namespace converter.Core
             {
                 foreach (string secondary_unit in units)
                 {
-                    if (unit == from_unit_listbox_selecteditem.ToString() && secondary_unit == to_unit_listbox_selecteditem.ToString())
+                    if (unit == from_unit && secondary_unit == to_unit)
                     {
                         if (units_convert_sign[counter] == '*')
                         {

@@ -21,10 +21,10 @@ namespace converter
         {
             Manager manager = new Manager(user_input_textbox, result_textbox, to_unit_listbox, from_unit_listbox, exception_info_label, unit_type_listbox);
             ExceptionHandler exceptionHandler = new ExceptionHandler(exception_info_label, user_input_textbox, result_textbox, manager);
-            Converter converter = new Converter(from_unit_listbox, to_unit_listbox, unit_type_listbox);
+            Converter converter = new Converter();
             if (exceptionHandler.ExceptionHandle())
             {
-                result_textbox.Text = converter.Convert(manager.FormatUserValue()).ToString();
+                result_textbox.Text = converter.Convert(from_unit_listbox.SelectedItem.ToString(), to_unit_listbox.SelectedItem.ToString(), unit_type_listbox.SelectedItem.ToString(), manager.FormatUserValue()).ToString();
                 manager.CopyResultToClipboard();
             }
         }
