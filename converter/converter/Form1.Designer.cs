@@ -28,131 +28,131 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.user_input_textbox = new System.Windows.Forms.TextBox();
-            this.calculate_button = new System.Windows.Forms.Button();
-            this.result_textbox = new System.Windows.Forms.TextBox();
-            this.unit_type_listbox = new System.Windows.Forms.ListBox();
-            this.from_unit_listbox = new System.Windows.Forms.ListBox();
-            this.to_unit_listbox = new System.Windows.Forms.ListBox();
-            this.exception_info_label = new System.Windows.Forms.Label();
-            this.clear_button = new System.Windows.Forms.Button();
-            this.text_from_label = new System.Windows.Forms.Label();
-            this.text_to_label = new System.Windows.Forms.Label();
+            this.userInputTextbox = new System.Windows.Forms.TextBox();
+            this.calculateButton = new System.Windows.Forms.Button();
+            this.resultTextbox = new System.Windows.Forms.TextBox();
+            this.unitTypeListbox = new System.Windows.Forms.ListBox();
+            this.fromUnitListbox = new System.Windows.Forms.ListBox();
+            this.toUnitListbox = new System.Windows.Forms.ListBox();
+            this.exceptionInfoLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.textFromLabel = new System.Windows.Forms.Label();
+            this.textToLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // user_input_textbox
             // 
-            this.user_input_textbox.Location = new System.Drawing.Point(94, 32);
-            this.user_input_textbox.MaxLength = 15;
-            this.user_input_textbox.Name = "user_input_textbox";
-            this.user_input_textbox.PlaceholderText = "Enter Value";
-            this.user_input_textbox.Size = new System.Drawing.Size(131, 23);
-            this.user_input_textbox.TabIndex = 0;
+            this.userInputTextbox.Location = new System.Drawing.Point(94, 32);
+            this.userInputTextbox.MaxLength = 15;
+            this.userInputTextbox.Name = "user_input_textbox";
+            this.userInputTextbox.PlaceholderText = "Enter Value";
+            this.userInputTextbox.Size = new System.Drawing.Size(131, 23);
+            this.userInputTextbox.TabIndex = 0;
             // 
             // calculate_button
             // 
-            this.calculate_button.Location = new System.Drawing.Point(104, 119);
-            this.calculate_button.Name = "calculate_button";
-            this.calculate_button.Size = new System.Drawing.Size(113, 30);
-            this.calculate_button.TabIndex = 1;
-            this.calculate_button.Text = "Calculate";
-            this.calculate_button.UseVisualStyleBackColor = true;
-            this.calculate_button.Click += new System.EventHandler(this.calculate_button_Click);
+            this.calculateButton.Location = new System.Drawing.Point(104, 119);
+            this.calculateButton.Name = "calculate_button";
+            this.calculateButton.Size = new System.Drawing.Size(113, 30);
+            this.calculateButton.TabIndex = 1;
+            this.calculateButton.Text = "Calculate";
+            this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculate_button_Click);
             // 
             // result_textbox
             // 
-            this.result_textbox.Location = new System.Drawing.Point(95, 90);
-            this.result_textbox.Name = "result_textbox";
-            this.result_textbox.PlaceholderText = "Your Result";
-            this.result_textbox.ReadOnly = true;
-            this.result_textbox.Size = new System.Drawing.Size(131, 23);
-            this.result_textbox.TabIndex = 2;
+            this.resultTextbox.Location = new System.Drawing.Point(95, 90);
+            this.resultTextbox.Name = "result_textbox";
+            this.resultTextbox.PlaceholderText = "Your Result";
+            this.resultTextbox.ReadOnly = true;
+            this.resultTextbox.Size = new System.Drawing.Size(131, 23);
+            this.resultTextbox.TabIndex = 2;
             // 
             // unit_type_listbox
             // 
-            this.unit_type_listbox.FormattingEnabled = true;
-            this.unit_type_listbox.ItemHeight = 15;
-            this.unit_type_listbox.Items.AddRange(new object[] {
+            this.unitTypeListbox.FormattingEnabled = true;
+            this.unitTypeListbox.ItemHeight = 15;
+            this.unitTypeListbox.Items.AddRange(new object[] {
             "weight",
             "distance"});
-            this.unit_type_listbox.Location = new System.Drawing.Point(18, 27);
-            this.unit_type_listbox.Name = "unit_type_listbox";
-            this.unit_type_listbox.Size = new System.Drawing.Size(70, 34);
-            this.unit_type_listbox.TabIndex = 4;
-            this.unit_type_listbox.SelectedIndexChanged += new System.EventHandler(this.unit_type_listbox_SelectedIndexChanged);
+            this.unitTypeListbox.Location = new System.Drawing.Point(18, 27);
+            this.unitTypeListbox.Name = "unit_type_listbox";
+            this.unitTypeListbox.Size = new System.Drawing.Size(70, 34);
+            this.unitTypeListbox.TabIndex = 4;
+            this.unitTypeListbox.SelectedIndexChanged += new System.EventHandler(this.unitTypeListboxSelectedIndexChanged);
             // 
             // from_unit_listbox
             // 
-            this.from_unit_listbox.FormattingEnabled = true;
-            this.from_unit_listbox.ItemHeight = 15;
-            this.from_unit_listbox.Location = new System.Drawing.Point(25, 88);
-            this.from_unit_listbox.Name = "from_unit_listbox";
-            this.from_unit_listbox.Size = new System.Drawing.Size(54, 64);
-            this.from_unit_listbox.TabIndex = 5;
+            this.fromUnitListbox.FormattingEnabled = true;
+            this.fromUnitListbox.ItemHeight = 15;
+            this.fromUnitListbox.Location = new System.Drawing.Point(25, 88);
+            this.fromUnitListbox.Name = "from_unit_listbox";
+            this.fromUnitListbox.Size = new System.Drawing.Size(54, 64);
+            this.fromUnitListbox.TabIndex = 5;
             // 
             // to_unit_listbox
             // 
-            this.to_unit_listbox.FormattingEnabled = true;
-            this.to_unit_listbox.ItemHeight = 15;
-            this.to_unit_listbox.Location = new System.Drawing.Point(241, 88);
-            this.to_unit_listbox.Name = "to_unit_listbox";
-            this.to_unit_listbox.Size = new System.Drawing.Size(54, 64);
-            this.to_unit_listbox.TabIndex = 6;
+            this.toUnitListbox.FormattingEnabled = true;
+            this.toUnitListbox.ItemHeight = 15;
+            this.toUnitListbox.Location = new System.Drawing.Point(241, 88);
+            this.toUnitListbox.Name = "to_unit_listbox";
+            this.toUnitListbox.Size = new System.Drawing.Size(54, 64);
+            this.toUnitListbox.TabIndex = 6;
             // 
             // exception_info_label
             // 
-            this.exception_info_label.BackColor = System.Drawing.Color.Transparent;
-            this.exception_info_label.ForeColor = System.Drawing.Color.Black;
-            this.exception_info_label.Location = new System.Drawing.Point(109, 9);
-            this.exception_info_label.Name = "exception_info_label";
-            this.exception_info_label.Size = new System.Drawing.Size(100, 15);
-            this.exception_info_label.TabIndex = 7;
-            this.exception_info_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.exceptionInfoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.exceptionInfoLabel.ForeColor = System.Drawing.Color.Black;
+            this.exceptionInfoLabel.Location = new System.Drawing.Point(109, 9);
+            this.exceptionInfoLabel.Name = "exception_info_label";
+            this.exceptionInfoLabel.Size = new System.Drawing.Size(100, 15);
+            this.exceptionInfoLabel.TabIndex = 7;
+            this.exceptionInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // clear_button
             // 
-            this.clear_button.Location = new System.Drawing.Point(229, 32);
-            this.clear_button.Name = "clear_button";
-            this.clear_button.Size = new System.Drawing.Size(56, 23);
-            this.clear_button.TabIndex = 8;
-            this.clear_button.Text = "Clear";
-            this.clear_button.UseVisualStyleBackColor = true;
-            this.clear_button.Click += new System.EventHandler(this.clear_button_Click);
+            this.clearButton.Location = new System.Drawing.Point(229, 32);
+            this.clearButton.Name = "clear_button";
+            this.clearButton.Size = new System.Drawing.Size(56, 23);
+            this.clearButton.TabIndex = 8;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clear_button_Click);
             // 
             // text_from_label
             // 
-            this.text_from_label.AutoSize = true;
-            this.text_from_label.Location = new System.Drawing.Point(32, 69);
-            this.text_from_label.Name = "text_from_label";
-            this.text_from_label.Size = new System.Drawing.Size(38, 15);
-            this.text_from_label.TabIndex = 9;
-            this.text_from_label.Text = "From:";
+            this.textFromLabel.AutoSize = true;
+            this.textFromLabel.Location = new System.Drawing.Point(32, 69);
+            this.textFromLabel.Name = "text_from_label";
+            this.textFromLabel.Size = new System.Drawing.Size(38, 15);
+            this.textFromLabel.TabIndex = 9;
+            this.textFromLabel.Text = "From:";
             // 
             // text_to_label
             // 
-            this.text_to_label.AutoSize = true;
-            this.text_to_label.Location = new System.Drawing.Point(256, 69);
-            this.text_to_label.Name = "text_to_label";
-            this.text_to_label.Size = new System.Drawing.Size(22, 15);
-            this.text_to_label.TabIndex = 10;
-            this.text_to_label.Text = "To:";
+            this.textToLabel.AutoSize = true;
+            this.textToLabel.Location = new System.Drawing.Point(256, 69);
+            this.textToLabel.Name = "text_to_label";
+            this.textToLabel.Size = new System.Drawing.Size(22, 15);
+            this.textToLabel.TabIndex = 10;
+            this.textToLabel.Text = "To:";
             // 
             // main_window
             // 
-            this.AcceptButton = this.calculate_button;
+            this.AcceptButton = this.calculateButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 161);
-            this.Controls.Add(this.text_to_label);
-            this.Controls.Add(this.text_from_label);
-            this.Controls.Add(this.clear_button);
-            this.Controls.Add(this.exception_info_label);
-            this.Controls.Add(this.to_unit_listbox);
-            this.Controls.Add(this.from_unit_listbox);
-            this.Controls.Add(this.unit_type_listbox);
-            this.Controls.Add(this.result_textbox);
-            this.Controls.Add(this.calculate_button);
-            this.Controls.Add(this.user_input_textbox);
+            this.Controls.Add(this.textToLabel);
+            this.Controls.Add(this.textFromLabel);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.exceptionInfoLabel);
+            this.Controls.Add(this.toUnitListbox);
+            this.Controls.Add(this.fromUnitListbox);
+            this.Controls.Add(this.unitTypeListbox);
+            this.Controls.Add(this.resultTextbox);
+            this.Controls.Add(this.calculateButton);
+            this.Controls.Add(this.userInputTextbox);
             this.MaximumSize = new System.Drawing.Size(335, 200);
             this.MinimumSize = new System.Drawing.Size(335, 200);
             this.Name = "main_window";
@@ -166,15 +166,15 @@
 
         #endregion
 
-        private TextBox user_input_textbox;
-        private Button calculate_button;
-        private TextBox result_textbox;
-        private ListBox from_unit_listbox;
-        private ListBox to_unit_listbox;
-        private Label exception_info_label;
-        private ListBox unit_type_listbox;
-        private Button clear_button;
-        private Label text_from_label;
-        private Label text_to_label;
+        private TextBox userInputTextbox;
+        private Button calculateButton;
+        private TextBox resultTextbox;
+        private ListBox fromUnitListbox;
+        private ListBox toUnitListbox;
+        private Label exceptionInfoLabel;
+        private ListBox unitTypeListbox;
+        private Button clearButton;
+        private Label textFromLabel;
+        private Label textToLabel;
     }
 }

@@ -1,6 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-
-namespace converter.Core
+﻿namespace converter.Core
 {
     internal static class Program
     {
@@ -9,7 +7,7 @@ namespace converter.Core
         static void Main()
         {
             Converter converter = new Converter();
-            double res = converter.Convert("kg", "g", "weight", 12);
+            double res = converter.Convert("km", "km", 12);
             Console.WriteLine(res);
         }
     }
