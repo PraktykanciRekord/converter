@@ -9,7 +9,7 @@ namespace converter.Core
     {
         public string[] weightUnits = { "t", "kg", "g", "mg" };
         public string[] distanceUnits = { "km", "m", "cm", "mm" };
-      
+
         public int[] weightUnitsConvertRatio = {
             1, 1_000, 1_000_000, 1_000_000_000, //t
             1_000, 1, 1_000, 1_000_000,         //kg
@@ -54,9 +54,12 @@ namespace converter.Core
         {
             return unitsConvertSign[counter] == '/';
         }
-        public double Convert(string? fromUnit, string? toUnit, double val)
+        public string[] Convert(string? fromUnit, string? toUnit, double val)
         {
-            double res = -1;
+            string[] result = new string[3];
+            bool success = true;
+            double resultValue = -1;
+            string error = "no error";
             string[] units = new string[0];
             string? unitType = GetSelectedUnitTypes(fromUnit);
             int counter = 0;
@@ -71,7 +74,11 @@ namespace converter.Core
                 units = distanceUnits;
                 unitsConvertRatio = distanceUnitsConvertRatio;
             }
-
+            else
+            {
+                error = "incorrect unit";
+                success = false;
+            }
             foreach (string unit in units)
             {
                 foreach (string secondaryUnit in units)
@@ -80,17 +87,38 @@ namespace converter.Core
                     {
                         if (IsConvertSignStar(counter))
                         {
-                            res = val * unitsConvertRatio[counter];
+                            resultValue = val * unitsConvertRatio[counter];
                         }
                         else if (IsConvertSignSlash(counter))
                         {
-                            res = val / unitsConvertRatio[counter];
+                            resultValue = val / unitsConvertRatio[counter];
                         }
                     }
                     counter++;
                 }
             }
-            return res;
+
+            if (resultValue >= double.MaxValue || resultValue <= double.MinValue)
+            {
+                error = "too big value";
+                success = false;
+                resultValue = -1;
+            }
+            if (!units.Contains<string>(fromUnit))
+            {
+                error = "incorrect first unit";
+                success = false;
+            }
+
+            if (!units.Contains<string>(toUnit))
+            {
+                error = "incorrect second unit";
+                success = false;
+            }
+            result[0] = success.ToString();
+            result[1] = error;
+            result[2] = resultValue.ToString();
+            return result;
         }
         public bool IsUnitTypeSampleUnit(string? unitType, string? sampleUnit)
         {
@@ -106,7 +134,6 @@ namespace converter.Core
                 {
                     if (IsUnitTypeSampleUnit(unitType, sampleUnit))
                     {
-                        Console.WriteLine(unitTypesArray[i]);
                         return unitTypesArray[i];
                     }
                 }
